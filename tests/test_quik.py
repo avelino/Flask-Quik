@@ -32,5 +32,11 @@ class QuikTestCase(unittest.TestCase):
         self.assertEqual(result.data, '<h1>quik</h1>\n')
 
 
+def suite():
+    suite = unittest.TestSuite()
+    suite.addTest(unittest.makeSuite(QuikTestCase))
+    return suite
+
+
 if __name__ == '__main__':
     unittest.main()
