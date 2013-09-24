@@ -12,6 +12,14 @@
 """
 from quik import FileLoader
 
+# Find the context stack so we can resolve which application is calling this
+# # extension.  Starting with Flask 0.9, the _app_ctx_stack is the correct one,
+# # before that we need to use the _request_ctx_stack.
+try:
+    from flask import _app_ctx_stack as stack
+except ImportError:
+    from flask import _request_ctx_stack as stack
+
 
 class FlaskQuik(object):
     """
@@ -59,6 +67,6 @@ def render_template(template_name, **context):
     :param context: the variables that should be available in the
     context of the template.
     """
-    loader = FileLoader('templates')
+    loader = FileLoader(stack.top.app.template_folder)
     template = loader.load_template(template_name)
     return template.render(context, loader=loader).encode('utf-8')
