@@ -28,8 +28,8 @@ setup(
     zip_safe=False,
     platforms='any',
     py_modules=['flask_quik'],
-    install_requires=['Flask'],
-    tests_require=['Flask-Testing', 'quik'],
+    install_requires=['Flask', 'quik'],
+    tests_require=['Flask-Testing'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
