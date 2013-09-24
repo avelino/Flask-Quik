@@ -1,19 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-Flask-Quik
---------------
-
-Flask quik integration.
-
-Links
-`````
-
-* `development version
-*   <http://github.com/avelino/flask-quik>`_
-"""
+import sys
 from setuptools import setup
 
+
+long_description = open('README.rst').read()
 
 setup(
     name='Flask-Quik',
@@ -23,12 +14,13 @@ setup(
     author='Thiago Avelino',
     author_email='thiago@avelino.xxx',
     description='Quik for Flask',
-    long_description=__doc__,
+    long_description=long_description,
     zip_safe=False,
     platforms='any',
     py_modules=['flask_quik'],
     install_requires=['Flask', 'quik'],
-    tests_require=['Flask-Testing'],
+    tests_require=['unittest2',
+                   'Flask-Testing'] if sys.version_info < (2, 7) else ['Flask-Testing'],
     test_suite="tests.test_quik.suite",
     classifiers=[
         'Development Status :: 4 - Beta',
