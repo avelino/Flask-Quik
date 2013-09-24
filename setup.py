@@ -4,7 +4,10 @@ import sys
 from setuptools import setup
 
 
-long_description = open('README.rst').read()
+try:
+    long_description = open('README.rst').read()
+except:
+    long_description = u"Provides support for Quik Templates in Flask - https://github.com/avelino/quik"
 
 setup(
     name='Flask-Quik',
