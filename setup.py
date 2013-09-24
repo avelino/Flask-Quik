@@ -24,12 +24,12 @@ setup(
     author_email='thiago@avelino.xxx',
     description='Quik for Flask',
     long_description=__doc__,
-    test_suite="nose.collector",
     zip_safe=False,
     platforms='any',
     py_modules=['flask_quik'],
     install_requires=['Flask', 'quik'],
     tests_require=['Flask-Testing'],
+    test_suite="tests.test_quik.suite",
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
