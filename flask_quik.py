@@ -50,3 +50,15 @@ class FlaskQuik(object):
 
         app.extensions['quik'] = self
 
+
+def render_template(template_name, **context):
+    """Renders a template from the template folder with the given
+    context.
+
+    :param template_name: the name of the template to be rendered
+    :param context: the variables that should be available in the
+    context of the template.
+    """
+    loader = FileLoader('templates')
+    template = loader.load_template(template_name)
+    return template.render(context, loader=loader).encode('utf-8')
